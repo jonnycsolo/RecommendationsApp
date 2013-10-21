@@ -1,0 +1,7 @@
+<h1>I Recommend...</h1>
+
+<ul>
+  <% @recommendations.each do |r| %>
+    <li><%= r[:title] %>: <%= r[:description] %></li>
+  <% end %>
+</ul>
