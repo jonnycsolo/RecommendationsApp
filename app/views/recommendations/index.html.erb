@@ -1,7 +1,10 @@
 <h1>I Recommend...</h1>
 
+<!-- Change this code so that I can click on the first item -->
+<!-- to go to http://localhost:3000/details to see the first item by itself-->
 <ul>
   <% @recommendations.each do |r| %>
-    <li><%= r[:title] %>: <%= r[:description] %></li>
+    <li><a href="http://localhost:3000/details?id=<%= r[:id] %>">
+      <%= r[:title] %>: <%= r[:description] %></a></li>
   <% end %>
 </ul>
