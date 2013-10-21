@@ -3,8 +3,12 @@
 <!-- Change this code so that I can click on the first item -->
 <!-- to go to http://localhost:3000/details to see the first item by itself-->
 <ul>
+  <% item_number = 0 %>
+
   <% @recommendations.each do |r| %>
-    <li><a href="http://localhost:3000/details?id=<%= r[:id] %>">
+    <li><a href="/details?id=<%= item_number %>">
       <%= r[:title] %>: <%= r[:description] %></a></li>
+
+    <% item_number = item_number + 1 %>
   <% end %>
 </ul>
