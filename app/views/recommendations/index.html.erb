@@ -2,10 +2,10 @@
 
 <ul>
   <% item_number = 0 %>
-
   <% @recommendations.each do |r| %>
-    <li><a href="/details/<%= item_number %>">
-      <%= r[:title] %>: <%= r[:description] %></a></li>
+    <li>
+      <%= link_to "#{r[:title]}: #{r[:description]}", details_url(item_number) %>
+    </li>
 
     <% item_number = item_number + 1 %>
   <% end %>
