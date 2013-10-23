@@ -4,7 +4,7 @@
   <% item_number = 0 %>
 
   <% @recommendations.each do |r| %>
-    <li><a href="/details?item-id=<%= item_number %>">
+    <li><a href="/details/<%= item_number %>">
       <%= r[:title] %>: <%= r[:description] %></a></li>
 
     <% item_number = item_number + 1 %>

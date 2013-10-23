@@ -4,10 +4,12 @@ class RecommendationsController < ApplicationController
     @recommendations = all_recommendations
   end
 
-  def details
+  def show
     the_recommendation_id = params["id"].to_i
 
     @item = all_recommendations[the_recommendation_id]
+
+    render 'details'
   end
 
 

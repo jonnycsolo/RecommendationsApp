@@ -4,6 +4,8 @@ RecommendationsApp::Application.routes.draw do
   get "/all" => 'recommendations#index'
 
   # Show the details of just one item
-  get "/details" => 'recommendations#show'
+  # http://localhost:3000/details/98
+  # params = { "id" => "98"}
+  get "/details/:id" => 'recommendations#show'
 
 end
