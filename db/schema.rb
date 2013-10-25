@@ -14,8 +14,9 @@
 ActiveRecord::Schema.define(version: 20131023162314) do
 
   create_table "items", force: true do |t|
-    t.string "title"
-    t.text   "description"
+    t.string  "title"
+    t.text    "description"
+    t.boolean "free",        default: false
   end
 
 end
