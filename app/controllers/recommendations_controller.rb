@@ -1,7 +1,7 @@
 class RecommendationsController < ApplicationController
 
   def destroy
-    item = Item.find_by(id: params["id"].to_i)
+    item = Item.find_by(id: params[:id])
     item.destroy
     redirect_to root_url
   end
@@ -11,8 +11,7 @@ class RecommendationsController < ApplicationController
   end
 
   def show
-    @item = Item.find_by(id: params["id"].to_i)
-    render 'details'
+    @item = Item.find_by(id: params[:id])
   end
 
 end
