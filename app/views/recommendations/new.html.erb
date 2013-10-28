@@ -1,17 +1,19 @@
 <h1>Add an Item</h1>
 
 <%= form_tag recommendations_url, method: 'post' do %>
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
-  <label for="title">Title:</label>
-  <input id="title" type="text" name="title">
+  <%= label_tag "title" %>
+  <%= text_field_tag  "title" %>
   <br>
-  <label for="desc">Description:</label>
-  <input type="text" id="desc" name="desc">
+
+  <%= label_tag "desc", "Description" %>
+  <%= text_field_tag  "desc" %>
   <br>
-  <input type="checkbox" id="free" name="free">
-  <label for="free">Free?</label>
+
+  <%= check_box_tag "free" %>
+  <%= label_tag "free", "Free?" %>
   <br>
-  <input type="submit">
+
+  <%= submit_tag "Go For It!", class: 'myclass' %>
 
 <% end %>
