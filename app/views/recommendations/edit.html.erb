@@ -1,0 +1,15 @@
+<h1>Edit</h1>
+
+<form action="/updateitem/<%= @item.id %>">
+  <label for="title">Title:</label>
+  <input id="title" type="text" name="title" value="<%= @item.title %>">
+  <br>
+  <label for="desc">Description:</label>
+  <input type="text" id="desc" name="desc" value="<%= @item.description %>">
+  <br>
+  <input type="checkbox" id="free" name="free" checked>
+  <label for="free">Free?</label>
+  <br>
+  <input type="submit">
+</form>
+

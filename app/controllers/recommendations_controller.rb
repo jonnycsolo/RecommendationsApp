@@ -1,5 +1,18 @@
 class RecommendationsController < ApplicationController
 
+  def update
+    item = Item.find_by(id: params[:id])
+    item.title = params[:title]
+    item.description = params[:desc]
+    item.free = params[:free]
+    item.save
+
+    redirect_to root_url
+  end
+  def edit
+    @item = Item.find_by(id: params[:id])
+  end
+
   # Just present a blank form to the user
   # that they can fill in and submit.
   def new
