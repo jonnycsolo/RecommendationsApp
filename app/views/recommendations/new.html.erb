@@ -1,6 +1,6 @@
 <h1>Add an Item</h1>
 
-<form action="/recommendations" method="post">
+<%= form_tag recommendations_url, method: 'post' do %>
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
   <label for="title">Title:</label>
@@ -13,4 +13,5 @@
   <label for="free">Free?</label>
   <br>
   <input type="submit">
-</form>
+
+<% end %>

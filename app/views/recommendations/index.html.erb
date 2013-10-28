@@ -1,13 +1,13 @@
 <h1>I Recommend...</h1>
 
-<%= link_to "Add a New Item", "/recommendations/new" %>
+<%= link_to "Add a New Item", new_recommendation_url %>
 
 <ul>
   <% @recommendations.each do |r| %>
     <li>
-      <%= link_to "#{r.title}: #{r.description}", details_url(r.id) %>
-      <%= link_to "Toast", details_path(r.id), method: 'delete' %>
-      <%= link_to "Edit", "/recommendations/#{r.id}/edit" %>
+      <%= link_to "#{r.title}: #{r.description}", recommendation_url(r.id) %>
+      <%= link_to "Toast", recommendation_url(r.id), method: 'delete' %>
+      <%= link_to "Edit", edit_recommendation_url(r.id) %>
     </li>
   <% end %>
 </ul>

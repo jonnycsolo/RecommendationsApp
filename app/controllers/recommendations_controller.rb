@@ -7,7 +7,7 @@ class RecommendationsController < ApplicationController
     item.free = params[:free]
     item.save
 
-    redirect_to root_url
+    redirect_to recommendations_url
   end
   def edit
     @item = Item.find_by(id: params[:id])
@@ -25,13 +25,13 @@ class RecommendationsController < ApplicationController
     i.title = params["title"]
     i.description = params["desc"]
     i.save
-    redirect_to root_url
+    redirect_to recommendations_url
   end
 
   def destroy
     item = Item.find_by(id: params[:id])
     item.destroy
-    redirect_to root_url
+    redirect_to recommendations_url
   end
 
   def index
