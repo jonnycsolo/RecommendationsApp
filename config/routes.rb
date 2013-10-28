@@ -7,10 +7,9 @@ RecommendationsApp::Application.routes.draw do
   get "/recommendations/new" => 'recommendations#new'
   post "/recommendations" => 'recommendations#create'
 
-  get "/details/:id" => 'recommendations#show', :as => "details"
-  get "/delete/:id" => 'recommendations#destroy'
+  get "/recommendations/:id" => 'recommendations#show', :as => "details"
+  delete "/recommendations/:id" => 'recommendations#destroy'
 
-  # Show an edit form
-  get "/edit/:id" => 'recommendations#edit'
-  get "/updateitem/:id" => 'recommendations#update'
+  get "/recommendations/:id/edit" => 'recommendations#edit'
+  patch "/recommendations/:id" => 'recommendations#update'
 end

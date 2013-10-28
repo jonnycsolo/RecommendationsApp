@@ -6,8 +6,8 @@
   <% @recommendations.each do |r| %>
     <li>
       <%= link_to "#{r.title}: #{r.description}", details_url(r.id) %>
-      <%= link_to "Toast", "/delete/#{r.id}" %>
-      <%= link_to "Edit", "/edit/#{r.id}" %>
+      <%= link_to "Toast", details_path(r.id), method: 'delete' %>
+      <%= link_to "Edit", "/recommendations/#{r.id}/edit" %>
     </li>
   <% end %>
 </ul>

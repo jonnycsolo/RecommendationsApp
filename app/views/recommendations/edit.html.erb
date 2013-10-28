@@ -1,15 +1,21 @@
 <h1>Edit</h1>
 
-<form action="/updateitem/<%= @item.id %>">
+<!-- <form action="/recommendations/<%#= @item.id %>"> -->
+
+<%= form_tag("/recommendations/#{@item.id}", method: 'patch') do %>
+
   <label for="title">Title:</label>
   <input id="title" type="text" name="title" value="<%= @item.title %>">
   <br>
   <label for="desc">Description:</label>
   <input type="text" id="desc" name="desc" value="<%= @item.description %>">
   <br>
-  <input type="checkbox" id="free" name="free" checked>
+  <input type="checkbox" id="free" name="free">
   <label for="free">Free?</label>
   <br>
   <input type="submit">
-</form>
+
+<% end %>
+
+<!-- </form> -->
 
