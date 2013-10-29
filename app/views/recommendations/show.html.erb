@@ -1,13 +1,31 @@
-<h1>Details</h1>
+<style>
+  body { font-family: 'Helvetica Neue'; margin: 20px auto; width: 960px; }
+  .recommendation { clear: both; border-top: 14px solid #090; padding: 20px 0px;}
+  .recommendation img { float: right; margin: 0px 0px 20px 20px; width: 300px; box-shadow: 7px 7px 4px #999;}
+  .recommendation h1 a, .recommendation h1 a:visited { text-decoration: none; color: #444;}
+  .recommendation img.free { width: 80px; box-shadow: none; float: none;}
+  p { line-height: 29px; color: #444; font-size: 18px;}
+</style>
 
-<h2>Title</h2>
-<%= @item.title %>
-
-<h2>Description</h2>
-<%= @item.description %>
+<h1>Item #<%= @item.id %></h1>
 
 <p>
   <%= link_to "Go Back", recommendations_url %>
 </p>
+<div class="recommendation">
+    <%= link_to image_tag(@item.image_url), recommendation_url(@item.id) %>
+  <h1>
+    <%= link_to @item.title, recommendation_url(@item.id) %>
+      <% if @item.free? %>
+        <%= image_tag 'free.jpg', class: 'free' %>
+      <% end %>
+  </h1>
+  <p><%= @item.description %></p>
+  <p>
+    <%= link_to "Delete", recommendation_url(@item.id), method: 'delete' %>
+    <%= link_to "Edit", edit_recommendation_url(@item.id) %>
+  </p>
+</div>
+
 
 
