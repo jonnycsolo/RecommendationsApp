@@ -35,7 +35,16 @@ class RecommendationsController < ApplicationController
   end
 
   def index
-    @recommendations = Item.all
+    # if params[:sort] != nil
+    #if !params[:sort].nil?
+
+    if params[:keyword].present?
+      @recommendations = Item.where("title LIKE '%#{params[:keyword]}%' OR description LIKE '%#{params[:keyword]}%'")
+    elsif params[:sort].present?
+      @recommendations = Item.order('title')
+    else
+      @recommendations = Item.all
+    end
   end
 
   def show

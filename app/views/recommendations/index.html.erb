@@ -1,4 +1,8 @@
-<p><%= link_to "Add a New Item", new_recommendation_url %></p>
+<p>
+  <%= link_to "Add a New Item", new_recommendation_url %>
+  | <%= link_to "Sort by Title", "/recommendations?sort=title" %>
+  | Showing <%= @recommendations.count %> of <%= Item.count %> items.
+</p>
 
   <% @recommendations.each do |r| %>
     <div class="recommendation row">
