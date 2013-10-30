@@ -2,6 +2,8 @@ RecommendationsApp::Application.routes.draw do
 
   # root 'recommendations#index'
 
+  get "/about" => 'pages#about'
+
   get "/recommendations" => 'recommendations#index'
 
   get "/recommendations/new" => 'recommendations#new', :as => 'new_recommendation'
