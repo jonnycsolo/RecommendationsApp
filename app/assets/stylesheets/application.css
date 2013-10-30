@@ -11,3 +11,10 @@
  *= require_self
  *= require_tree .
  */
+
+.recommendation { clear: both; border-top: 14px solid #090; padding: 20px 0px;}
+.recommendation img { float: right; margin: 0px 0px 20px 20px; width: 300px; box-shadow: 7px 7px 4px #999;}
+.recommendation h1 a, .recommendation h1 a:visited { text-decoration: none; color: #444;}
+.recommendation img.free { width: 80px; box-shadow: none; float: none;}
+p { line-height: 29px; color: #444; font-size: 18px;}
+

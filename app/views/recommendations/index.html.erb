@@ -1,29 +1,22 @@
-<style>
-  body { font-family: 'Helvetica Neue'; margin: 20px auto; width: 960px; }
-  .recommendation { clear: both; border-top: 14px solid #090; padding: 20px 0px;}
-  .recommendation img { float: right; margin: 0px 0px 20px 20px; width: 300px; box-shadow: 7px 7px 4px #999;}
-  .recommendation h1 a, .recommendation h1 a:visited { text-decoration: none; color: #444;}
-  .recommendation img.free { width: 80px; box-shadow: none; float: none;}
-  p { line-height: 29px; color: #444; font-size: 18px;}
-</style>
-
-<h1>I Recommend...</h1>
-
 <p><%= link_to "Add a New Item", new_recommendation_url %></p>
 
   <% @recommendations.each do |r| %>
-    <div class="recommendation">
-        <%= link_to image_tag(r.image_url), recommendation_url(r.id) %>
-      <h1>
-        <%= link_to r.title, recommendation_url(r.id) %>
-          <% if r.free? %>
-            <%= image_tag 'free.jpg', class: 'free' %>
-          <% end %>
-      </h1>
-      <p><%= r.description %></p>
-      <p>
-        <%= link_to "Delete", recommendation_url(r.id), method: 'delete' %>
-        <%= link_to "Edit", edit_recommendation_url(r.id) %>
-      </p>
+    <div class="recommendation row">
+        <div class='col-md-8'>
+          <h1>
+            <%= link_to r.title, recommendation_url(r.id) %>
+            <% if r.free? %>
+              <%= image_tag 'free.jpg', class: 'free' %>
+            <% end %>
+          </h1>
+          <p><%= r.description %></p>
+          <p>
+            <%= link_to "Delete", recommendation_url(r.id), method: 'delete' %>
+            <%= link_to "Edit", edit_recommendation_url(r.id) %>
+          </p>
+        </div>
+        <div class="col-md-4">
+          <%= link_to image_tag(r.image_url), recommendation_url(r.id) %>
+        </div>
     </div>
   <% end %>
