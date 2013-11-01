@@ -30,7 +30,7 @@ class RecommendationsController < ApplicationController
 
   def destroy
     item = Item.find_by(id: params[:id])
-    item.destroy
+    # item.destroy
     redirect_to recommendations_url
   end
 
@@ -38,8 +38,20 @@ class RecommendationsController < ApplicationController
     # if params[:sort] != nil
     #if !params[:sort].nil?
 
+    # SELECT * FROM ITEMS WHERE ID = 8
+    # CREATE TABLE USERS (.........)
+    # DROP TABLE USERS
+
+    # SELECT * FROM ITEMS WHERE TITLE LIKE 'Apollo'; DROP TABLE USERS;
+
     if params[:keyword].present?
-      @recommendations = Item.where("title LIKE '%#{params[:keyword]}%' OR description LIKE '%#{params[:keyword]}%'")
+      # @recommendations = Item.where("title LIKE ? OR description LIKE ?",
+      #                               "%#{params[:keyword]}%",
+      #                               "%#{params[:keyword]}%")
+
+      @recommendations = Item.where("title LIKE :k OR description LIKE :k",
+                                    :k => "%#{params[:keyword]}%")
+
     elsif params[:sort].present?
       @recommendations = Item.order('title')
     else
