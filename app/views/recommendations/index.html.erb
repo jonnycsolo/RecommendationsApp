@@ -4,6 +4,8 @@
   | Showing <%= @recommendations.count %> of <%= Item.count %> items.
 </p>
 
+<%= paginate @recommendations %>
+
   <% @recommendations.each do |r| %>
     <div class="recommendation row">
         <div class='col-md-8'>

@@ -35,6 +35,9 @@ class RecommendationsController < ApplicationController
   end
 
   def index
+
+    @recommendations = Item.order(:title).page(params[:page]).per(2)
+
     # if params[:sort] != nil
     #if !params[:sort].nil?
 
@@ -44,19 +47,19 @@ class RecommendationsController < ApplicationController
 
     # SELECT * FROM ITEMS WHERE TITLE LIKE 'Apollo'; DROP TABLE USERS;
 
-    if params[:keyword].present?
-      # @recommendations = Item.where("title LIKE ? OR description LIKE ?",
-      #                               "%#{params[:keyword]}%",
-      #                               "%#{params[:keyword]}%")
+    # if params[:keyword].present?
+    #   # @recommendations = Item.where("title LIKE ? OR description LIKE ?",
+    #   #                               "%#{params[:keyword]}%",
+    #   #                               "%#{params[:keyword]}%")
 
-      @recommendations = Item.where("title LIKE :k OR description LIKE :k",
-                                    :k => "%#{params[:keyword]}%")
+    #   @recommendations = Item.where("title LIKE :k OR description LIKE :k",
+    #                                 :k => "%#{params[:keyword]}%")
 
-    elsif params[:sort].present?
-      @recommendations = Item.order('title')
-    else
-      @recommendations = Item.all
-    end
+    # elsif params[:sort].present?
+    #   @recommendations = Item.order('title')
+    # else
+    #   @recommendations = Item.all
+    # end
   end
 
   def show
