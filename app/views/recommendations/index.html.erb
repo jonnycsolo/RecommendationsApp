@@ -7,15 +7,19 @@
 <%= paginate @recommendations %>
 
   <% @recommendations.each do |r| %>
-    <div class="recommendation row">
-        <div class='col-md-8'>
-          <h1>
+    <div class="recommendation row panel panel-default">
+      <div class="panel-heading">
+        <h1>
             <%= link_to r.title, recommendation_url(r.id) %>
-            <% if r.free? %>
+
+          </h1>
+        </div>
+        <div class='description col-md-8'>
+
+          <p><%= r.description %></p>
+          <% if r.free? %>
               <%= image_tag 'free.jpg', class: 'free' %>
             <% end %>
-          </h1>
-          <p><%= r.description %></p>
           <p>
             <%= link_to "Delete", recommendation_url(r.id), method: 'delete' %>
             <%= link_to "Edit", edit_recommendation_url(r.id) %>
