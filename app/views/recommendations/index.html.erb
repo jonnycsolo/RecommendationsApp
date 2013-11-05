@@ -7,7 +7,7 @@
 <%= paginate @recommendations %>
 
   <% @recommendations.each do |r| %>
-    <div class="recommendation row panel panel-default">
+    <div class="recommendation row panel panel-success">
       <div class="panel-heading">
         <h1>
             <%= link_to r.title, recommendation_url(r.id) %>

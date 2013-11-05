@@ -1,19 +1,36 @@
-<h1>Add an Item</h1>
+<div class="recommendation panel panel-success">
+  <div class="panel-heading"><h1>Add an Item</h1>
+  </div>
 
-<%= form_tag recommendations_url, method: 'post' do %>
 
-  <%= label_tag "title" %>
-  <%= text_field_tag  "title" %>
-  <br>
+<%= form_tag recommendations_url, method: 'post', class: 'form-horizontal description', role: 'form' do %>
+  <div class = "form-group" >
+    <%= label_tag "title", nil, class: "col-sm-2 control-label" %>
+      <div class="col-sm-8">
+       <%= text_field_tag  "title", nil, class: 'form-control' %>
+      </div>
+  </div>
+  <div class = "form-group" >
+    <%= label_tag "Description", nil, class: "col-sm-2 control-label" %>
+      <div class="col-sm-8">
+       <%= text_area_tag  "desc", nil, class: "form-control" %>
+      </div>
+</div>
 
-  <%= label_tag "desc", "Description" %>
-  <%= text_area_tag  "desc" %>
-  <br>
+<div class = "form-group">
+    <div class="col-sm-offset-2 col-sm-8">
+      <div class="checkbox">
+        <%= check_box_tag "free" %>
+        <%= label_tag "free", "Free?" %>
+      </div>
+    </div>
+  </div>
 
-  <%= check_box_tag "free" %>
-  <%= label_tag "free", "Free?" %>
-  <br>
-
-  <%= submit_tag "Go For It!", class: 'myclass' %>
+   <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-default">Save!</button>
+      </div>
+    </div>
 
 <% end %>
+</div>
